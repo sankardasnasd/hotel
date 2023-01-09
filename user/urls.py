@@ -14,6 +14,7 @@ urlpatterns = [
    path('hotel-detail<uid>/' ,views.hotel_detail , name="hotel_detail"),
    path('signin',views.signin, name='signin'),
    path('check_booking/' ,views.check_booking),
+   path('',views.login_page1,name='login_page')
   
   
 
