@@ -14,8 +14,10 @@ urlpatterns = [
    path('hotel-detail<uid>/' ,views.hotel_detail , name="hotel_detail"),
    path('signin',views.signin, name='signin'),
    path('check_booking/' ,views.check_booking),
-   path('',views.login_page1,name='login_page')
-  
+   path('login_page1',views.login_page1,name='login_page'),
+   path('hotel',views.hotel,name='hotel'),
+   path('package',views.package,name='package'),
+   path('package_details<id>/',views.package_details,name='package_details')
   
 
 ]

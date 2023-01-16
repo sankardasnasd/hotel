@@ -9,4 +9,14 @@
   </div>
   {% endfor %}
   {% endif %}
+
+  {% if messages %}
+{% for messages in messages %}
+<div class="alert alert-success {{messages.TAGS}}" role="alert">
+ 
+</div>
+    {{ messageS }}
+  </div>
+  {% endfor %}
+  {% endif %}
 {% endblock %}

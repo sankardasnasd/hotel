@@ -4,7 +4,7 @@
 {% extends "base.html" %}
 {% load static %}
 {%  block content %}
-
+{{package_obj.package_images.url}}
 
 <section class="vh-100 bg-image"
   style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
@@ -18,9 +18,10 @@
 
               <form action="" method="POST">
                 {% csrf_token %}
-                <input type="text" name="username" id="username" placeholder="enter your username" class="form-control form-control-lg"><br>
-                <input type="text" name="firstname" id="firstname" placeholder="enter your firstname" class="form-control form-control-lg"><br>
                 
+                <input type="text" name="username" id="username" placeholder="enter your username" class="form-control form-control-lg"><br>
+                
+                <input type="text" name="firstname" id="firstname" placeholder="enter your firstname" class="form-control form-control-lg"><br>
                 <input type="email" name="email" id="email" placeholder="enter your email" class="form-control form-control-lg"><br>
                 <input type="password" name="password" id="password" placeholder="enter your pssword" class="form-control form-control-lg"> <br>
                 <input type="password2" name="password2" id="password2" placeholder=" confirm your password " class="form-control form-control-lg"><br>
@@ -38,7 +39,6 @@
       </div>
     </div>
   </div>
-</section>
 
 
 {% endblock %}

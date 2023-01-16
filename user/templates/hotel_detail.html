@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{%include "messages.html"%}
 {% load static %}
 {%  block content %}
 
@@ -52,7 +52,7 @@
     {% if request.user.is_authenticated %}
     <div class="filter-card">
         <h5>Book Hotel</h5>
-        {%include "messages.html"%}
+        
         <form method="post">
             {% csrf_token %}
             <div class="row form-group">

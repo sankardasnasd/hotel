@@ -2,82 +2,89 @@
 {% load static %}
 
 {%  block content %}
+<style>
+    li:hover{
+      background-color: white;
+      border-radius: 10px;
+      border: 1px solid orange;
+  }
+  
+  </style>
 
 <!-- jumbotron and nav -->
 <section class="colorful jumbotron mb-0" role="banner">
     <nav class="navbar navbar-expand-lg justify-content-between navbar-dark" role="navigation">
-        <div class="navbar-brand">
-            <!-- <a href="index.html">Hotel Spoof
+        <div class="navbar-brand"> -->
+         <a href="index.html">Hotel Spoof
                 <em>.</em>
-            </a> -->
+            </a>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
        
     </nav>
+   
+        
+          
+          <!-- <button type="button" class="btn btn-dark btn-lg fa fa- p-3 my-2 m-3 w-25">Hospital</button>
+          <button type="button" class="btn btn-dark btn-lg fa fa- p-3 m-3 w-25">Hotel</button>
+          <button type="button" class="btn btn-dark btn-lg fa fa-  p-3 m-3 w-25">Petrol</button>
+          <button type="button" class="btn btn-dark btn-lg fa fa- p-3 m-3 w-25">Restuarent</button>
+          
+          
+         
+    
+          
+    
+          </div>
+          
+        </div></div> -->
 
     <div class="container hotels-container">
 
         <div class="row mt-2 justify-content-between">
-            <div class="col-md-8 text-white align-self-center mb-2 p-4">
+            
                 <h1>Travallon</h1>
-                <span class=""> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum debitis perspiciatis sed iusto
-                    eveniet neque natus quidem velit optio cumque saepe repudiandae vero, sit hic adipisci laudantium libero blanditiis
-                    animi.
-                </span>
-            </div>
-           
-        </div>
-    </div>
+                
 </section>
 
 <section class="search-container mb-5 pb-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="row my-3">
+   
                     
                    
 
                     
                 </div>
-                <div class="row mt-2 justify-content-between">
-                    <div class="filter-card">
-                        <h5>booking-date</h5>
-                        <form action="#">
-                            <div class="row form-group">
-                                <div class="col-md-12">
-                                    <label for="mintopay">Check in</label>
-                                    <p>
-                                        <input type="date" name="checkin" id="checkin" class="form-control">
-                                    </p>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="maxtopay">Check out</label>
-                                    <p>
-                                        <input type="date" name="checkout" id="checkout" class="form-control">
-                                    </p>
-                                </div>
-                            </div>
-                           
-                            <div class="row form-group">
-                                <div class="col-md-12">
-                                    <input type="submit" class="btn btn-primary btn-block" value="Limit">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                
 
                 </div>
             </div>
 
 
 
-            <div class="col-lg-9  px-4 mb-5">
+           
+                <div class="bg-white my-2 p-3">
+                    <div class="container ">
+                      <div>
+                      <button type="button" class="btn btn-dark btn-lg fa fa- p-3 my-2 m-3">Hospital</button>
+                      <button type="button" class="btn btn-dark btn-lg fa fa- p-3 m-3"><a href="{% url 'hotel' %}">Hotel</a>  </button>
+                      <button type="button" class="btn btn-dark btn-lg fa fa-  p-3 m-3">Petrol</button>
+                      <button type="button" class="btn btn-dark btn-lg fa fa- p-3 m-3">Restuarent</button>
+                      <button type="button" class="btn btn-dark btn-lg fa fa-  p-3 m-3">Shopping Mall</button>
+                      <button type="button" class="btn btn-dark btn-lg fa fa-  p-3 m-3">Sports</button>
+                      <button type="button" class="btn btn-dark btn-lg fa fa-  p-3 m-3">Metro</button>
+                
+                      
+                
+                      </div>
+                      
+                    </div></div>
+                    
                 <form>
                 <div class="row mt-3">
+                    
                     <div class="col-md-4">
                     <div class="form-inline">
                         <label class="" for="exampleFormControlSelect1">Sort by</label>
@@ -117,49 +124,83 @@
                         </div>
                 </div>
                 </form>
-                
-                {% for hotels_obj in hotels_objs %}
-                <div class="row search-card-result">
-                 <div class="col-md-3">
-                    
-                    <a href="hotel-detail{{hotels_obj.uid}}">
-                        <img class="img-fluid" src="/media/{{hotels_obj.images.first.images}}" alt="Card image cap">
-                    
-                    </a>
-                    
-                    </div>
-               
-                    <div class="col-md-5">
-                        <h5>{{hotels_obj.hotel_name}}</h5>
-                        
-                        <p>
-                            {{hotels_obj.description|truncatechars:150}}
-                        </p>
-                        <p>
-                            {%for amenitie in hotels_obj.amenities.all %}
-                            <b>{{amenitie.amenity_name}}</b>,
-                            {% endfor %}
-                        </p>
-                        
-                    </div>
-                    <div class="col-md-2 border-left text-center more-offers">
-                        
-                        <!-- <p>Place.com</p> -->
-                        <p>RS :{{hotels_obj.hotel_price}}/Day</p>
-                        <p>Room count</p>
-                        <p>{{hotels_obj.room_count}}</p>
-                    </div>
-                    <div class="col-md-2 border-left text-center more-offers">
-                       
-                        <div class="btn btn-success">View deal </div>
-                    </div>
-                </div>
-                {% endfor %}
-               
-            </div>
-        </div>
 
+            
     </div>
 </section>
+
+
+
+
+    
+    
+
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+</section>
+<img src="{% static '/images/dest2.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="" class="d-block w-100" alt="...">
+            
+          
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="" class="d-block w-100" alt="...">
+            
+          
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div></div>
+<div class="container my-5">
+      <div class="row">
+        <div class="col-sm">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top " src="" alt="Card image cap" >
+            <div class="card-body">
+              <h5 class="card-title text-center">  TRAVEL</h5>
+              
+              <a href="" class="btn btn-success  btn-lg w-100">view</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm"><div class="card" style="width: 22rem;">
+          <img class="card-img-top" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title text-center">packages</h5>
+            
+            <a href="" class="btn btn-success  btn-lg w-100">view</a>
+          </div>
+        </div></div>
+        <div class="col-sm"><div class="card" style="width: 20rem;">
+          <img class="card-img-top" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title text-center">destination</h5>
+            
+            <a href="" class="btn btn-success  btn-lg w-100">view</a>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+
+    
+  
+    
+   
 
 {% endblock %}

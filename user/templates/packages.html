@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container mt-5 pt-5">
+
+
+<div class="container text-center">
+
+        
+        
+         
+ <h1 class="text-center  my-4 text-dark" > <b> Our Packages</b>  </h1></span>
+ <form>
+    <div class="row mt-3">
+        <div class="col-md-4">
+        <div class="form-inline">
+            <label class="" for="exampleFormControlSelect1">Sort by</label>
+            <select class="form-control" name="sort_by" id="exampleFormControlSelect1">
+                <option value="">Recommended</option>
+                <option value="ASC">Low to high</option>
+                <option  value="DSC">High to low</option>
+                
+               
+            </select>
+        </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-inline">
+                <label class="" for="exampleFormControlSelect1">Search</label>
+                <input name="search" class="form-control" value="{{search}}" placeholder="Search"> 
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-inline">
+               <label class="" for="exampleFormControlSelect1">Amenities</label>
+                <select name="" class="form-control" multiple>
+
+                <option value="">Choose</option>
+               
+                <option value=""></option>
+                
+               
+            </select>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+         
+                <button style="margin-top: 30px;" type="submit" class="btn btn-success">Find</button>
+            </div>
+    </div>
+    </form>
+    <div class="container text-center">
+
+        {% for package_obj in package_objs %}
+        
+         
+         
+          <div class="row search-card-result">
+            <div class="col-md-3">
+                <a href="/package_details{{package_obj.id}}">
+                   <img class="img-fluid" src="{{package_obj.package_images.url}}" alt="Card image cap">
+                   
+               </a>
+               
+               </div>
+          
+               <div class="col-md-5">
+                   <h5>{{package_obj.package_name}}</h5>
+                   
+                   <p>
+                       {{package_obj.Package_description|truncatechars:150}}
+                   </p>
+                   <p>
+                      
+                       
+                       
+                   </p>
+                   
+               </div>
+               <div class="col-md-2 border-left text-center more-offers">
+                   
+                   <!-- <p>Place.com</p> -->
+                   <p>RS :/Day</p>
+                   <p>Room count</p>
+                   <p></p>
+               </div>
+               <div class="col-md-2 border-left text-center more-offers">
+                <button type="button" class="btn btn-success">View plan</button>
+               
+               
+                
+            </div>
+             {% endfor %}
+               
+           </div>
+       
+        </div>
+
+
+
+   
+    </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+{% endblock %}
